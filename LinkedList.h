@@ -35,6 +35,12 @@ public:
 
     virtual ~LinkedList() {}// end
 
+    pushFront(const E& element){
+        tempNode = new Node(head, element, head->next);
+        head->next->previous = tempNode;
+        head->next = tempNode;
+    }
+
     virtual string toString() const {
         ostringstream oss;
 
