@@ -41,6 +41,12 @@ public:
         head->next = tempNode;
     }
 
+    pushBack(const E& element){
+        tempNode = new Node(tail->previous, element, tail);
+        tail->previous->next = tempNode;
+        tail->previous = tempNode;
+    }
+
     virtual string toString() const {
         ostringstream oss;
 
