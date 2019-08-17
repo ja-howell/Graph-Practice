@@ -22,9 +22,9 @@ private:
                 {}
     };
 
-    Node * head;
-    Node * tail;
-    int numNodes;
+    Node * head = nullptr;
+    Node * tail = nullptr;
+    int numNodes = 0;
     
 public:
     LinkedList() {
@@ -35,21 +35,54 @@ public:
 
     virtual ~LinkedList() {}// end
 
-    pushFront(const E& element){
-        tempNode = new Node(head, element, head->next);
+    void pushFront(const E& element){
+        Node * tempNode = new Node(head, element, head->next);
         head->next->previous = tempNode;
         head->next = tempNode;
+        numNodes++;
     }
 
-    pushBack(const E& element){
-        tempNode = new Node(tail->previous, element, tail);
+    void pushBack(const E& element){
+        Node * tempNode = new Node(tail->previous, element, tail);
         tail->previous->next = tempNode;
         tail->previous = tempNode;
+        numNodes++;
+    }
+
+    void pushAt(const int index, const E& element){
+       Node * place;
+       if(index < 0 || index > numNodes){
+           cout << "Error: index out of bounds";
+           return;
+       }
+       if(index <= (numNodes/2)){
+           place = head->next;
+           for(int move = 0; move < index; move++){
+               place = place->next;
+           }
+       }
+       else{
+           place = tail;
+            for(int move = numNodes; move > index; move--){
+                place = place->previous;
+            }
+       }
+       Node * temp = new Node(place->previous, element, place);
+       place->previous->next = temp;
+       place->previous = temp;
+       numNodes++;
+
     }
 
     virtual string toString() const {
         ostringstream oss;
-
+        oss << "[ ";
+        Node * iter = head->next;
+        while ( iter != tail ) {
+            oss << iter->element << ", ";
+            iter = iter->next;
+        }
+        oss << "]";
         return oss.str();
     }// end
 };// end LinkedList
