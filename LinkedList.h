@@ -114,9 +114,13 @@ public:
 
     }
 
-    E popAt(const int indeex){
+    E popAt(const int index){
         if(numNodes <= 0){
             cout << "List is Empty" << endl;
+            return -1;
+        }
+        if(index < 0 || index > numNodes){
+            cout << "Error: index out of bounds";
             return -1;
         }
 
