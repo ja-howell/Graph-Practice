@@ -150,6 +150,45 @@ public:
         return removedElem;
     }
 
+    E getFront(){
+        if(numNodes <= 0){
+            cout << "List is Empty" << endl;
+            return -1;
+        }
+        return head->next->element;
+    }
+
+    E getBack(){
+        if(numNodes <= 0){
+            cout << "List is Empty" << endl;
+            return -1;
+        }
+        return tail->previous->element;
+    }
+
+    E getAt(const int index){
+        if(numNodes <=0){
+            cout << "List is Empty" << endl;
+            return -1;            
+        }
+        Node * curNode;
+        if(index <= (numNodes/2)){
+           curNode = head->next;
+           for(int move = 0; move < index; move++){
+               curNode = delNode->next;
+           }
+       }
+       else{
+           curNode = tail->previous;
+            for(int move = numNodes - 1; move > index; move--){
+                curNode = curNode->previous;
+            }
+       }
+
+       return curNode->element;
+
+    }
+
     virtual string toString() const {
         ostringstream oss;
         oss << "[ ";
