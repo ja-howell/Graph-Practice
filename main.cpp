@@ -10,21 +10,31 @@ int main() {
     int listData;
 
     listData = myList.popFront();
+    cout << "popFront" << endl;
     cout << listData << endl 
          << myList << endl;
 
     listData = myList.popBack();
-    cout << listData << endl 
-         << myList << endl;
-
-    listData = myList.popBack();
+    cout << "popBack" << endl;
     cout << listData << endl 
          << myList << endl;
 
     myList.pushAt(1,1);
+    cout << "pushAt" << endl;
     cout << myList << endl;
 
+    cout << "getFront" << endl;
+    cout << myList.getFront() << endl;
+    cout << "getBack" << endl;
+    cout << myList.getBack() << endl;
+    cout << "getAt" << endl;
+    cout << myList.getAt(0) << endl;
+
     myList.pushFront(2);
+    cout << "getFront" << endl;
+    cout << myList.getFront() << endl;
+    cout << "getBack" << endl;
+    cout << myList.getBack() << endl;
     myList.pushFront(3);
     myList.pushBack(4);
     cout << myList << endl;
@@ -50,6 +60,8 @@ int main() {
     listData = myList.popAt(5);
     cout << listData << endl 
          << myList << endl;
+
+    cout << myList.getAt(2) << endl;
     
     return 0;
 }// end main()

@@ -52,7 +52,7 @@ public:
     void pushAt(const int index, const E& element){
        Node * place;
        if(index < 0 || index > numNodes){
-           cout << "Error: index out of bounds";
+           cout << "Error: index out of bounds" << endl;
            return;
        }
        if(index <= (numNodes/2)){
@@ -120,7 +120,7 @@ public:
             return -1;
         }
         if(index < 0 || index > numNodes){
-            cout << "Error: index out of bounds";
+            cout << "Error: index out of bounds" << endl;
             return -1;
         }
 
@@ -171,11 +171,15 @@ public:
             cout << "List is Empty" << endl;
             return -1;            
         }
+        if(index < 0 || index > numNodes){
+            cout << "Error: index out of bounds" << endl;
+            return -1;
+        }
         Node * curNode;
         if(index <= (numNodes/2)){
            curNode = head->next;
            for(int move = 0; move < index; move++){
-               curNode = delNode->next;
+               curNode = curNode->next;
            }
        }
        else{
