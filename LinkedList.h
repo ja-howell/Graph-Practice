@@ -74,6 +74,25 @@ public:
 
     }
 
+    E popFront(){
+        if(numNodes <= 0){
+            cout << "List is Empty" << endl;
+            return -1;
+        }
+
+        Node * delNode = head->next;
+        E removedElem = delNode->element;
+
+        head->next = delNode->next;
+        delNode->next->previous = head;
+
+        delete delNode;
+        delNode = nullptr;
+
+        return removedElem;
+
+    }
+
     virtual string toString() const {
         ostringstream oss;
         oss << "[ ";
