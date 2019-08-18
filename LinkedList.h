@@ -31,7 +31,24 @@ public:
         head = new Node(nullptr, E(), nullptr);
         tail = new Node(head, E(), nullptr);
         head->next = tail;
-    }// end 
+    }// end
+
+    LinkedList(const LinkedList& copyList){
+        numNodes = copyList.numNodes;
+
+        Node * iter = copyList.head->next;
+        head = new Node(nullptr, E(), nullptr);
+        tail = new Node(head, E(), nullptr);
+        head->next = tail;
+
+        while(iter != copyList.tail){
+            tail->element = iter->element;
+            tail = new Node(tail, E(), nullptr);
+            tail->previous->next = tail;
+            iter = iter->next;
+        }
+
+    } 
 
     virtual ~LinkedList() {}// end
 
