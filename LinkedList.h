@@ -102,11 +102,9 @@ public:
 
         Node * delNode = tail->previous;
         E removedElem = delNode->element;
+
         tail->previous = delNode->previous;
         delNode->previous->next = tail;
-
-                head->next = delNode->next;
-        delNode->next->previous = head;
 
         delete delNode;
         delNode = nullptr;
