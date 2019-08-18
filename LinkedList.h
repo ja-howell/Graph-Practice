@@ -114,6 +114,38 @@ public:
 
     }
 
+    E popAt(const int indeex){
+        if(numNodes <= 0){
+            cout << "List is Empty" << endl;
+            return -1;
+        }
+
+        Node * delNode;
+
+       if(index <= (numNodes/2)){
+           delNode = head->next;
+           for(int move = 0; move < index; move++){
+               delNode = delNode->next;
+           }
+       }
+       else{
+           delNode = tail->previous;
+            for(int move = numNodes - 1; move > index; move--){
+                delNode = delNode->previous;
+            }
+       }
+
+       E removedElem = delNode->element;
+       delNode->previous->next = delNode->next;
+       delNode->next->previous = delNode->previous;
+
+        delete delNode;
+        delNode = nullptr;
+        numNodes--;
+
+        return removedElem;
+    }
+
     virtual string toString() const {
         ostringstream oss;
         oss << "[ ";
