@@ -62,6 +62,15 @@ int main() {
          << myList << endl;
 
     cout << myList.getAt(2) << endl;
+
+    LinkedList<int> copyList(myList);
+
+    cout << myList << endl
+         << copyList << endl;
+    
+    copyList.pushFront(1);
+     cout << myList << endl
+          << copyList << endl;   
     
     return 0;
 }// end main()
