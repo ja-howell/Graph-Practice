@@ -88,6 +88,29 @@ public:
 
         delete delNode;
         delNode = nullptr;
+        numNodes--;
+
+        return removedElem;
+
+    }
+
+    E popBack(){
+        if(numNodes <= 0){
+            cout << "List is Empty" << endl;
+            return -1;
+        }
+
+        Node * delNode = tail->previous;
+        E removedElem = delNode->element;
+        tail->previous = delNode->previous;
+        delNode->previous->next = tail;
+
+                head->next = delNode->next;
+        delNode->next->previous = head;
+
+        delete delNode;
+        delNode = nullptr;
+        numNodes--;
 
         return removedElem;
 
