@@ -12,6 +12,9 @@ int main() {
     listData = myList.popFront();
     cout << listData << endl 
          << myList << endl;
+    listData = myList.popBack();
+    cout << listData << endl 
+         << myList << endl;
     myList.pushAt(1,1);
     cout << myList << endl;
     myList.pushFront(2);
@@ -23,6 +26,9 @@ int main() {
     myList.pushAt(5, 7);
     cout << myList << endl;
     listData = myList.popFront();
+    cout << listData << endl 
+         << myList << endl;
+    listData = myList.popBack();
     cout << listData << endl 
          << myList << endl;
 
